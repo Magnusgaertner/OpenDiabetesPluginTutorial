@@ -3,8 +3,9 @@ This sample project describes how to implement your own plugin for OpenDiabetes,
 All necessary steps how to write a plugin are described there in the comments.
 
 ---
-## Building
+## Importing and Building with IDEs
 This sample project can be imported and is tested with the NetBeans, Eclipse and Intellij IDEs. Follow these instruction to import and use them:
+
 ### Eclipse
 Use `File > Open Projects from File System...` to import the sources. Then right-click the `build.xml` and select `Run As > Ant Build...`. In the popped-up menu check the `package` target to execute and choose a name for the configuration. Afterwards you can build the plugin by simply clicking the `Run As` icon in the menu bar at the top.
 
