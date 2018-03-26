@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+
+<project>
+
+    <property name="plugin.path" value="MyPlugin"/>
+
+    <path id="libs-classpath">
+        <fileset dir="libs">
+            <include name="*.jar"/>
+        </fileset>
+
+        <fileset dir="BaseLibs">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="clean">
+        <delete dir="out"/>
+        <mkdir dir="out"/>
+        <mkdir dir="out/classes"/>
+
+        <first id="first">
+            <fileset dir="src" includes="**/plugin.properties" />
+        </first>
+        <dirname file="${toString:first}" property="plugin.src.path"/>
+        <property file="${plugin.src.path}/plugin.properties" />
+        <echoproperties/>
+        <copy todir="out" quiet="true" failonerror="false">
+            <fileset dir="${plugin.src.path}">
+                <include name="*.properties"/>
+                <include name="help*.md"/>
+            </fileset>
+        </copy>
+        <mkdir dir="out/lib"/>
+        <mkdir dir="libs"/>
+        <copydir src="libs" dest="out/lib" />
+    </target>
+
+    <target name="compile" depends="clean">
+        <javac srcdir="src" destdir="out/classes" classpathref="libs-classpath"/>
+    </target>
+
+    <target name="package" depends="compile">
+        <zip destfile="${plugin.path}/${plugin.id}-${plugin.version}.zip" basedir="out"/>
+    </target>
+
+</project>

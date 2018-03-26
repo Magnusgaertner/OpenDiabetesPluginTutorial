@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="OpenDiabetes">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/BaseLibs/OpenDiabetes.jar!/" />
+    </SOURCES>
+  </library>
+</component>
