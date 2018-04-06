@@ -4,13 +4,22 @@ All necessary steps how to write a plugin are described there in the comments.
 
 ---
 ## Importing and Building with IDEs
-This sample project can be imported and is tested with the NetBeans, Eclipse and Intellij IDEs. Follow these instruction to import and use them:
+This sample project can be opened and is tested with [NetBeans](https://netbeans.org/).
+This guide covers how to setup the project using it.
 
-### Eclipse
-Use `File > Open Projects from File System...` to import the sources. Then right-click the `build.xml` and select `Run As > Ant Build...`. In the popped-up menu check the `package` target to execute and choose a name for the configuration. Afterwards you can build the plugin by simply clicking the `Run As` icon in the menu bar at the top.
 
-### Intellij
-Use `File > Open...` to import the sources. Then mark the `BaseLibs` and `libs` folders as `Resources Root` and add the jars inside as libraries to the project. Also mark `src` as `Sources Root`. Then right-click the `build.xml` and add it as an Ant build file. You can then open the belonging pane under `View > Tools Windows > Ant Build`. Finally you have to set the project's SKD under `File > Project Structure... > Project` The targets can be executed by simply double clicking them.
 
-### Netbeans
-Use `File > New Project` to open the import dialogue. Then select `Java Free-Form Project` and advance. Select the folder where you clone the repository to, the build script should be detected automatically. In the next step select the `package` target in the `Build Project` menu and advance. In the fourth step select JDK 1.8. In step five add the jars from `BaseLibs` and `libs` to the classpath. Finally create the `out` folder as target destination for the output and finish the setup. You can then build the plugin by simply clicking the `Build Project` item in the menu bar at the top.
+The repository is already set up as a NetBeans project, which makes it easy to get started:
+
+1. Use `File > Open Project` to open the import dialogue.
+
+2. Select the folder where you cloned the repository to and click `Open Project`.
+
+Now you are all set to start and develop plugins or make changes to the base.
+Current mappings of Ant targets and NetBeans' buttons are (button = target):
+- `Build Project` = package (building the plugin)
+
+Other targets can be executed by right-clicking the `build.xml` in the `Projects` pane under `Run Target`.
+
+---
+The internal build system that is used (Ant) makes it possible to integrate the project in almost any common IDE, so check out your IDEs documentation if you want to use a different one than NetBeans.
